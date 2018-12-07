@@ -1,26 +1,35 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
+import {BrowserRouter as Router, Route, Switch, Link} from "react-router-dom";
 import './App.css';
+import ArtistList from "./components/ArtistList";
+import Artist from "./components/Artist";
+
 
 class App extends Component {
   render() {
     return (
+
+        <Router>
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <div>
+          This is our navbar
+        </div>
+
+        <h1>Tunr</h1>
+          <div>
+              <div><Link to="/">All Artists</Link></div>
+          </div>
+
+        <Switch>
+            <Route exact path={"/"} component= {ArtistList}/>
+            <Route  path={"/artist/:id"} component= {Artist}/>
+
+        </Switch>
+
+
       </div>
+        </Router>
     );
   }
 }
