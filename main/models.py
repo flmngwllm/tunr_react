@@ -12,7 +12,7 @@ class Song(models.Model):
     title = models.CharField(max_length=255)
     album = models.CharField(max_length=255)
     preview_url = models.CharField(max_length=400)
-    artist =  models.ForeignKey(Artist, on_delete=models.CASCADE, related_name='songs')
+    artist = models.ForeignKey(Artist, on_delete=models.CASCADE, related_name='songs')
 # Create your models here.
 
     def __str__(self):
